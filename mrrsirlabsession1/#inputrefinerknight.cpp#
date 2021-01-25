@@ -1,6 +1,0 @@
-#include<stdio.h>
-
-int arraymaking(char a)
-{
-  if(a==
-}
