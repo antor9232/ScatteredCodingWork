@@ -57,15 +57,14 @@ int main(){
     int n,m,s,e, arr1[N],arr3[N];
     scanf("%d", &n);
     for(int j=0; j<n; j++) { scanf("%d",&arr1[j]);}
-    
+
     scanf("%d %d %d", &s ,&m, &e);
-    
-    
+
     arraytp2(arr1,s,m,e);
     for(int j=0; j<n; j++) { printf("%d ",arr1[j]);}
     printf("\n");
 
-    
+
 
 
     return 0;
