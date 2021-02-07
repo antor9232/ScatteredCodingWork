@@ -1,38 +1,34 @@
 //12
 //12
 #include<stdio.h>
-int arr[1000006], num;
-void printarr()
+typedef struct Word{
+    char word[101];
+}Word;
+int strlen(char x[])
 {
-    for( int i=0; i<num; i++) {printf("%d", arr[i]); if(i!= num-1) printf(" ");}
+	int count=0;
+	int i=0;
+	while(x[i]!='\0') {count++;i++;}
+	return count;
 }
-void inc(int n)
-{
-    for( int i=0; i<num; i++) arr[i]+=n;
-}
-void dec(int n)
-{
-    for( int i=0; i<num; i++) arr[i]-=n;
-}
+
 int main()
 {
-    int t;
-	scanf("%d", &num);
-	for( int i=0; i<num; i++) scanf("%d", &arr[i]);
-	scanf("%d", &t);
-    int count=0;
-    while(t>=count)
+    struct Word arr[101];
+    char str[100000];
+    scanf("%[^\n]",str);
+    int l= strlen(str);
+    bool flag =false;
+    int j=0, k=0;
+    for(int i=0; i<l; i++)
     {
-        
-        char com;
-        scanf("%c",&com);
-        if(com=='\n') count++;
-        else if(com=='P') {printarr(); printf("\n");}
-        else if(com=='I') { int temp; scanf("%d",&temp); inc(temp);}
-        else if(com=='D') { int temp; scanf("%d",&temp); dec(temp);}
+        if(str[i]>66 && str[i]<91 && str[i]>96 && str[i]<123) 
+        {
+            if(!flag && j!=0) k=0;
+            arr[j].word[k]= str[i]; k++; flag= true;
+        }
+        if(j!=0) j++; flag= false;
     }
-	
-
-return 0;
+    printf("run %s",arr[1].word);
+    return 0;
 }
-
