@@ -68,12 +68,64 @@ int strcmp(char x[], char y[])
 		i++;
 	}
 	return 1;
+}//Make it more efficient without using string length
+/*
+int fs( char x[], char c)
+{
+	for(int i=0; x[i]!='\0'; i++)
+	{
+		if(x[i]==c) return i;
+	}
+	return -1;
 }
+
+int fs2( char x[], char c)
+{
+	int count=0
+	for(int i=0; x[i]!='\0'; i++)
+	{
+		if(x[i]==c) count++
+	}
+	return count;
+}
+*/
+int fs3( char x[], char y[])
+{
+	int i=0;
+	int j=0;
+	for(i; x[i]!='\0'; i++)
+	{
+		if(x[i]==y[j])
+		{
+			bool flag=0;
+			for(int j=0; y[j]!='\0';j++)
+			{
+				if(x[i]==y[j]) i++;
+				else
+				{
+					flag= 1; break;
+				}
+			}
+			if(flag==0) return 1;
+		}
+	}
+	return 0;
+}
+/*
+Substring:
+Prefix= Righthand Trim+ 1st character theke shuru hoy
+Suffix = Lefthand Trim + last character theke shesh hoy
+Subsequence:
+Sequence maintain kore given string in the string! Not necessary they are  together! But in string we will get them!
+*/
 int main()
 {
-	int n, m;
+	int a, b;
 	char x[100], y[100], z[100];
-	scanf("%s %s",x,y);
+	int arr[] = {2,3,5};
+	scanf("%s",x);
 	//strRev(x);
-	printf("%d\n",strcmp(x,y));
+	sscanf(arr,"%d %d", &a,&b);
+	printf("%d %d\n", a,b);
 }
+//Learn Strtok
