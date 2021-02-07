@@ -61,12 +61,13 @@ int strcmp(char x[], char y[])
 	int n= strlen(x);
 	int m = strlen(y);
 	int i=0;
-	while(1)
+	while(i<n || i<m)
 	{
-		if(x[i]> y[i]) return 1;
-		if(y[i]>x[i]) return 0;
+		if(x[i]> y[i]) return 3;
+		if(y[i]>x[i]) return 2;
 		i++;
 	}
+	return 1;
 }
 int main()
 {

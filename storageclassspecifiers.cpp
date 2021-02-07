@@ -15,5 +15,8 @@ int main()
 	int first=10, last= 20;
 
 */
+Unlike Global variables, static variables are not known outside their function or file, but they maintain their value between calls.
+in a static local variable value is assigned only once, and variable retains its value during function call
+same statement in global static variable but now in file level
 
 
