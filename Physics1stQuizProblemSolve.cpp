@@ -1,5 +1,13 @@
 #include<stdio.h>
-
+double intocelcious( double a)
+{
+	//return a-273.16 ;
+	return  (a-32.0)*5.0/9.0;
+}
+double intoatm( double b)
+{
+	return (1.0/101325.0)*b;
+}
 int main()
 {
 	double A, B, T,P,p1,t1,t2,p2;
@@ -32,3 +40,10 @@ int main()
 	}
 	return 0;
 }
+/*
+int main()
+{
+printf("%lf\n%lf",intoatm(303975.0), intocelcious(32));
+return 0;
+}
+*/
