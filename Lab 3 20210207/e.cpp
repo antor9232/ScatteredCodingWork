@@ -53,8 +53,9 @@ int main()
     scanf("%d",&t);
     for(int i=0; i<t; i++)
     {
-        scanf("%d %c",&arr[i].id, &c);
-        scanf("%[^\n]",arr[i].name);
+        scanf("%d ",&arr[i].id);
+       	scanf("%[^\n]",arr[i].name);
+		//printf("%s", arr[i].name);
         int total=0;
         for (int j = 0; j < 5; j++)
         {
@@ -97,3 +98,10 @@ Bruce Wayne
 Mr or Mrs BCS
 100 100 100 100 100
 */
+    // 1 1234 Mr or Mrs BCS         500  100  100  100  100  100
+    // 2 5421 Bruce Wayne           379   89   57   67   95   71
+    // 3 1254 Steve Rogers          368   79   85   92   49   63
+
+    // 1 1234 r or Mrs BCS          500  100  100  100  100  100
+    // 2 5421 ruce Wayne            379   89   57   67   95   71
+    // 3 1254 teve Rogers           368   79   85   92   49   63

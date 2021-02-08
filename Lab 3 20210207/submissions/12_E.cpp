@@ -1,5 +1,6 @@
 //12
 //12
+//12
 #include<stdio.h>
 typedef struct Word{
     char word[101];

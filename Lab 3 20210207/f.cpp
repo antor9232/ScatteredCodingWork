@@ -1,4 +1,5 @@
 //12
+//12
 
 #include<stdio.h>
 
@@ -6,6 +7,7 @@ int main()
 {
 	
 	int numisprime[1000005];
+	int sum[100005]={0};
 	for(int i = 1; i < 1000001; i++)
 	{
 		numisprime[i] = i;
@@ -19,6 +21,16 @@ int main()
 				numisprime[j] = -1;
 		}
 	}
+	;
+	int sumi=0;
+	for(int i=0; i <=1000005; i++)
+	{
+		if(numisprime[i] != -1)
+		{
+			sumi+=i;
+		}
+		sum[i]= sumi;
+	}	
 	int t;
 	scanf("%d",&t);
 	while(t--)
@@ -26,15 +38,7 @@ int main()
 	int a, b;
 	scanf("%d %d",&a, &b);
 	if(a==1) a++;
-	int sum=0;
-	for(int i=a; i <=b; i++)
-	{
-		if(numisprime[i] != -1)
-		{
-			sum+=i;
-		}
-	}
-	printf("%d\n", sum);
+	printf("%d\n", sum[b]-sum[a-1]);
 	}
 	return 0;
 }
