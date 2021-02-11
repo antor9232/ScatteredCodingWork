@@ -28,6 +28,5 @@ int main()
         if(j!=0) j++; fl=0;
         
     }
-   
     return 0;
 }

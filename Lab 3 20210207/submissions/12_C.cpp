@@ -1,18 +1,21 @@
 //12
 //12
 //12
+//12
+//12
 #include<stdio.h>
 int bstr[5];
 int len=0, k=0;
 int arr[1000005];
-int inttoarray(int n, int bstr[])
+int inttoarray(char in[], int bstr[])
 {
 	int i=0;
-	while(n>0)
+	while(in[i]!='\0')
 	{
-	bstr[i]= n%10;
-	n=n/10;
-	i++;
+	if(in[i]==48) bstr[i]=0;
+	if(in[i]==49) bstr[i]=1;
+	//if(in[i]==48) bstr[i]=1;
+
 	}
 	return i;
 }
@@ -37,8 +40,9 @@ void whattodo(int x){
 }
 int main()
 {
-    int in,x;
-    scanf("%d %d", &in,&x);
+	char in[5];
+    int x;
+    scanf("%s %d", in,&x);
     len= inttoarray(in,bstr);
     whattodo(x);
     

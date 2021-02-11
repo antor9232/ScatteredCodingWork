@@ -2,6 +2,7 @@
 //12
 //12
 //12
+//12
 #include<stdio.h>
 typedef struct student
 {

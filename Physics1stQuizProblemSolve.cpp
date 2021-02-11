@@ -1,3 +1,4 @@
+//Sir's Second slide quiz
 #include<stdio.h>
 double intocelcious( double a)
 {
