@@ -2,46 +2,64 @@
 //12
 //12
 //12
-#include<stdio.h>
-int bstr[5],len;
-int inttoarray(char in[], int bstr[])
+//12
+#include <stdio.h>
+int bstr[5], len = 0;
+
+void doii(int x)
 {
-	int i=0;
-	while(in[i]!='\0')
-	{
-	if(in[i]==48) bstr[i]=0;
-	if(in[i]==49) bstr[i]=1;
-	
-	}
-	return i;
-}
-void whattodo(int x){
-    if(x==0) 
-    {for(int i=0; i<len;i++) { printf("%d", bstr[i]);}}
-    else if(x%2!=0) {
-        for(int i=0; i<len;i++)
-        {
-            if(bstr[i]==1) whattodo(x-1);
-            else printf("%d", bstr[i]);
-        }
-    }
-    else if(x%2==0) 
+    if (x == 0)
     {
-        for(int i=0; i<len;i++)
+        for (int i = 0; i < len; i++)
         {
-            if(bstr[i]==0) whattodo(x-1);
-            else printf("%d", bstr[i]);
+            printf("%d", bstr[i]);
         }
     }
+    else if (x % 2 != 0)
+    {
+        for (int i = 0; i < len; i++)
+        {
+            if (bstr[i] == 1)
+                doii(x - 1);
+            else
+                printf("%d", bstr[i]);
+        }
+    }
+    else if (x % 2 == 0)
+    {
+        for (int i = 0; i < len; i++)
+        {
+            if (bstr[i] == 0)
+                doii(x - 1);
+            else
+                printf("%d", bstr[i]);
+        }
+    }
+}
+void problemsolve()
+{
+    int x = 3;
+    while (1)
+    {
+        char temp;
+        scanf("%c", &temp);
+        if (temp == ' ')
+            break;
+        else if (temp == 48)
+            bstr[len] = 0;
+        else if (temp == 49)
+            bstr[len] = 1;
+        len++;
+    }
+    scanf("%d", &x);
+    //   for(int i=0; i<len;i++) { printf("%d", bstr[i]);}
+    //   printf("\n%d",x);
+    doii(x);
 }
 int main()
 {
-	char in[5];
-    int x;
-    scanf("%s %d", in,&x);
-    int len= inttoarray(in,bstr);
-    whattodo(x);
-   
+    problemsolve();
+
     printf("\n");
 
     return 0;
