@@ -437,25 +437,4 @@ int GCD(int A, int B) {
 //(SIZEOFARRAY) int n = sizeof(arr)/sizeof(arr[0]); 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-int main() {
- fastio;
- testcase{
-     for(int i=0;i<55;i++)
-     {
-         char ch;
-         scanf("%c",&ch);
-         if(i%2==0){
-             if(char=='a') printf("b");
-            else printf("a");
-         }
-         else {
-             if(char =='z') printf("y");
-             else printf("z");
-         }
-         printf("\n");
-     }
-     
 
- }
- return 0;
-}
