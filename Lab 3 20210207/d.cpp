@@ -1,20 +1,27 @@
-//12
-//12
-//12
 #include <stdio.h>
 
-int strlen(char x[])
-{
-    int count = 0;
-    int i = 0;
-    while (x[i] != '\0')
-    {
-        count++;
-        i++;
-    }
-    return count;
-}
+#define MAXC 100
 
-int main()
-{
+int main(void) {
+
+    int c = 0;
+    size_t n = 0;
+
+    printf ("\n Enter a sentence.\n\n input: ");
+
+    /* read up to 100 characters from stdin, print each word on a line */
+    while ((c = getchar ()) != EOF && c != '\n')
+    {
+        if (c == ' ')
+            printf ("\n");
+        else
+            printf ("%c", c);
+        n++;
+    }
+    printf ("\n");
+
+
+
+    return 0;
+
 }

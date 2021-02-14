@@ -73,73 +73,21 @@ using namespace std;
 
 const int MAXN = 1e5 + 3;
 
-using namespace std;
-typedef struct fighter
-{
-    int inh;
-    int ap;
-    int ch;
-} fighter;
-bool myC(struct fighter a, struct fighter b)
-{
-    return a.ap < b.ap;
-}
-
+ll t, n, A, B, x, maxn, a[100005];
 int main()
 {
-    fastio;
-    int t;
-    scanf("%d ", &t);
-    while (t--)
+    for (scanf("%lld", &t); t--;)
     {
-        bool flag = 1;
-        int n;
-        fighter hero;
-        scanf("%d %d %d", &hero.ap, &hero.inh, &n);
-        hero.ch = hero.inh;
-        struct fighter mon[100005];
-        for (int i = 0; i < n; i++)
+        scanf("%lld%lld%lld", &A, &B, &n);
+        maxn = 0;
+        for (ll i = 1; i <= n; i++)
+            scanf("%lld", a + i);
+        for (ll i = 1; i <= n; i++)
         {
-            scanf("%d", &mon[i].ap);
+            scanf("%lld", &x);
+            B -= (x / A + (bool)(x % A)) * a[i];
+            maxn = max(maxn, a[i]);
         }
-        for (int i = 0; i < n; i++)
-        {
-            scanf("%d", &mon[i].inh);
-            mon[i].ch = mon[i].inh;
-        }
-        sort(mon, mon + n, myC);
-        int i = 0;
-        while (i < n)
-        {
-            int temp = ceil((mon[i].inh) * 1.0 / hero.ap * 1.0);
-            while (temp--)
-            {
-                hero.ch -= mon[i].ap;
-                mon[i].ch -= hero.ap;
-                if (hero.ch <= 0)
-                    break;
-            }
-            i++;
-        }
-
-        if (hero.ch <= 0)
-        {
-            if (i == n && mon[i-1].ch <= 0)
-            {
-                flag = 1;
-                break;
-            }
-            else
-            {
-                flag = 0;
-                break;
-            }
-        }
-
-        if (flag)
-            printf("YES\n");
-        else
-            printf("NO\n");
+        puts(maxn + B > 0 ? "YES" : "NO");
     }
-    return 0;
 }

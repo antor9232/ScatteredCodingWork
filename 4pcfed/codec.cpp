@@ -73,23 +73,27 @@ typedef long double ld;
 using namespace std;
 const int maxn = 1e5 + 7;
 typedef long long LL;
-int t;
-int n, m;
-int a[maxn], b[maxn], c[maxn];
-queue<int> pos[maxn];
-int Ans[maxn];
-int main()
+
+//All the variables declared Globally
+int t;//Number of testcase
+int n, m; //Number of plank and number of painter
+int a[maxn], b[maxn], c[maxn];//arrays previous color dream color, paint color of painter
+queue<int> pos[maxn]; //Position
+int Ans[maxn];//answer of where painter will start work
+
+
+int main() // main function
 {
-    scanf("%d", &t);
+    scanf("%d", &t); //scanning in number of testcases
     while (t--)
     {
-        scanf("%d%d", &n, &m);
+        scanf("%d%d", &n, &m); //input of n, m;
         for (int i = 1; i <= n; i++)
             scanf("%d", &a[i]);
         for (int i = 1; i <= n; i++)
         {
             scanf("%d", &b[i]);
-            if (a[i] != b[i])
+            if (a[i] != b[i]) //if two color is not same do the following
                 pos[b[i]].push(i);
         }
         for (int i = 1; i <= m; i++)
