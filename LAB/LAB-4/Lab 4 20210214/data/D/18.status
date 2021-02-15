@@ -1,4 +1,4 @@
 *** stack smashing detected ***: terminated
 timeout: the monitored command dumped core
-./startJudge.sh: line 220: 22290 Aborted                 timeout 3s ../../a.out < $i > $j
+./startJudge.sh: line 220: 45568 Aborted                 timeout 3s ../../a.out < $i > $j
 TLE

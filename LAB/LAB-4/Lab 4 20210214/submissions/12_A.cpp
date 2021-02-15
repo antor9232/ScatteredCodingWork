@@ -1,6 +1,8 @@
 //12
 //12
 //12
+//12
+//12
 #include<stdio.h>
 
 long long int solve(int a[], int t)
