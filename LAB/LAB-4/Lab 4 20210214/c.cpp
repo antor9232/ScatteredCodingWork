@@ -1,11 +1,20 @@
 #include<stdio.h>
+void display(int k)
+{
+    for(int i=0; i<100005;i++)
+    {
+        if(pos[i]==k) 
+    }
+}
 int pos[100005]={0};
 
 void solveq1(int var)
 {
-    if(pos[var]==0) return;
+    int here = pos[var];
+    if(here==0) return;
     else
     {
+
 
     }
 
