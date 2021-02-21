@@ -52,11 +52,72 @@ void strcpyt(char *smain, char *scopy, int t)
     }
     scopy[j] = '\0';
 }
+int binarys_ub(struct String4 arr[], int N, char *X)
+{
+    int mid;
+
+    int low = 0;
+    int high = N;
+
+    while (low < high)
+    {
+
+        mid = low + (high - low) / 2;
+        //if(strcmp(X,arr[mid].s)==0) return 1;
+
+        if (strcmp(X, arr[mid].s) == 1)
+        {
+            low = mid + 1;
+        }
+        else if (strcmp(X, arr[mid].s) == 0)
+        {
+            low = mid + 1;
+        }
+
+        else
+        {
+            high = mid;
+        }
+    }
+
+    return low;
+}
+int binarys_lb(struct String4 arr[], int N, char *X)
+{
+    int mid;
+
+    int low = 0;
+    int high = N;
+
+    while (low < high)
+    {
+
+        mid = low + (high - low) / 2;
+        //if(strcmp(X,arr[mid].s)==0) return 1;
+
+        if (strcmp(X, arr[mid].s) == -1)
+        {
+            high = mid;
+        }
+        else if (strcmp(X, arr[mid].s) == 0)
+        {
+            high = mid;
+        }
+
+        else
+        {
+
+            low = mid + 1;
+        }
+    }
+
+    return low;
+}
 int main()
 {
     int n = 0;
     struct String4 sarray[1000000];
-    char str[100000];
+    char str[100000], s1[5];
     scanf("%s", str);
     int len = strlen(str);
     while (n <= len - 4)
@@ -77,10 +138,19 @@ int main()
                 strcpy(sarray[j].s, temp);
             }
         }
+    //scanf("%s", s1);
+    //printf("Upeer Bound:%d\n Lower Bonud%d\n", binarys_ub(sarray, len - 3, s1), binarys_lb(sarray, len - 3, s1));
 
     for (int i = 0; i < len - 3; i++)
     {
-        printf("%s\n", sarray[i].s);
+        int ub= binarys_ub(sarray, len - 3, sarray[i].s);
+        int lb=binarys_lb(sarray, len - 3, sarray[i].s);
+        if ((ub-lb) > 1)
+        {
+            printf("%s\n", sarray[i].s);
+            i=ub;
+        }
+        //printf("%s\n", sarray[i].s);
     }
     return 0;
 }
