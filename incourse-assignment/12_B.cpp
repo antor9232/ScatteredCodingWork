@@ -1,43 +1,53 @@
 #include <stdio.h>
-typedef long long ll;
-int numisprime[10001] = {0};
-int solve1[1000]={0};
-int count=0;
+typedef long long int ll;
+
+//global declaration of prime number array
+int numisprime[256] = {0};
+//global declaration of memory array storing solve function result
+ll memory[256] = {0};
+
+//solve function to calculate answer
 ll solve(int n)
 {
-    count++;
-    if(solve1[n]) return solve1[n];
-    else{
-    ll ans = n * (n + 1) / 2;
-
-
-    for (int i = 1; i < n; i++)
+    if (memory[n])
+        return memory[n]; //checking already in memory array
+    else
     {
+        ll ans = n * (n + 1) / 2;
 
-        if (numisprime[i] != -1)
+        for (int i = 1; i < n; i++)
         {
-            ans -= i;
-            ans += solve(i);
+
+            if (numisprime[i] != -1)
+            {
+                ans -= i;
+                if (memory[n])
+                    ans += memory[n]; //checking already in memory array
+                else
+                    ans += solve(i);
+            }
         }
-    }
-    solve1[n]=ans;
-    return ans;
+        memory[n] = ans; // keeping answer in memory
+        return ans;
     }
 }
 int main()
 {
+    //Making an array where prime numbered position will get 0 and others will get -1
     numisprime[0] = -1;
     numisprime[1] = -1;
-    for (int i = 2; i * i < 1000; i++)
+    for (int i = 2; i * i < 255; i++)
     {
         if (numisprime[i] != -1)
         {
-            for (int j = 2 * i; j < 1000; j += i)
+            for (int j = 2 * i; j < 255; j += i)
                 numisprime[j] = -1;
         }
     }
+
+    //getting input from user and output result
     int n;
     scanf("%d", &n);
-    printf("%lld %d\n", solve(n), count);
+    printf("%lld\n", solve(n));
     return 0;
 }
