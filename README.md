@@ -1,4 +1,1 @@
-# cwpf
-CWPF= Class Work of Programming Fundamentals
-
-Assalamualaikum! I am Abdullah Ibne Hanif Arean.This repository will contain all my work of programming, related to my academic study!
+My all Coding related random thoughts can be found here! I was working in this repositories in the beginning of 2021!
