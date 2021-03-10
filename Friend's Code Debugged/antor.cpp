@@ -20,7 +20,7 @@ void reversePrint(int A[], int size)
     }
     if (size == 1)
     {
-        printf("%d\t", A[0]);
+        printf("%d\n", A[0]);
         return;
     }
 
