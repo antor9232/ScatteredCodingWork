@@ -26,7 +26,18 @@ void reversePrint(int A[], int size)
 
     return;
 }
-
+int array[100];
+int len = 0;
+void rpd(int number)
+{
+    if (number == 0)
+    {
+        return;
+    }
+    array[len++] = number % 10;
+    rpd(number / 10);
+    return;
+}
 int main()
 {
     /*
@@ -35,7 +46,23 @@ int main()
     scanf("%s", s);
     printf("%d\n", hydroxide(s));
     */
+    /*
+    Element for testing reversePrint function
     int A[] = {1, 2, 3, 4, 5, 6, 7};
-    //printf("%d\t" ,A[6]);
     reversePrint(A, 7);
+    */
+    int num;
+    printf("Give An Integer\n");
+    scanf("%d", &num);
+    rpd(1234567);
+    printf("From last to first\n");
+    for (int i = 0; i < len; i++)
+    {
+        printf("%d\n", array[i]);
+    }
+    printf("From first to last\n");
+    for (int i = len - 1; i >= 0; i--)
+    {
+        printf("%d\n", array[i]);
+    }
 }
